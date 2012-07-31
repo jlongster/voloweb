@@ -322,6 +322,7 @@ module.exports = {
         }
     },
 
+    //Compile all the less files into css
     less: function(d, v, namedArgs) {
         var q = v.require('q');
         var files = v.getFilteredFileList('www/css');
