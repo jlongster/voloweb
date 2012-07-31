@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>volo: js tool for the future</title>
+    <meta name="description"
+          content="volo is a javascript tool for managing web projects">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/lib/modernizr-2.5.3.min.js"></script>    
+  </head>
+  <body>
+    <section class="logo">
+      <div class="logo"></div>
+      volo
+    </section>
+
+    <div class="content">
+
+      <section class="headline">
+        Are you tired of repeating yourself when building web sites? 
+        <strong>Volo</strong> is a tool which lets you
+        quickly <strong>create</strong> projects, <strong>add</strong>
+        libraries, <strong>build</strong> them into optimized
+        formats, and <strong>deploy</strong> them. All with a few keystrokes.
+      </section>
+
+      <button class="get-started">Get started now!</button>
+
+      <section class="features">
+        Just type <code>volo &lt;command&gt;</code> and you'll be able to:
+
+        <ul>
+          <li>
+            <strong>Quickly add javascript libraries</strong>: Just tell
+            volo the library name or a raw URL, and volo will find it,
+            add it and all dependencies, and convert it into an AMD
+            module if needed.
+          </li>
+
+          <li>
+            <strong>Automatically compile Less and
+              Coffeescript</strong>: Volo will watch your files for
+            changes and automatically compile them. This is builtin to
+            volo's development server. (TODO)
+          </li>
+
+          <li>
+            <strong>Fire up a development server</strong>: View your
+            site over HTTP if you don't already have a server-side
+            component set up. This also compiles your Less and
+            Coffeescript for you.
+          </li>
+
+          <li>
+            <strong>Build your site optimally</strong>: Concatenate and
+            minify all your CSS and js with one build command. Volo uses
+            r.js to flatten all your AMD modules and CSS files and
+            minimize them.
+          </li>
+
+          <li>
+            <strong>Deploy straight to github</strong>: If your site
+            is all client-side, you can publish to github with one
+            command. Your site is live within seconds.
+          </li>
+
+          <li>
+            <strong>Manage the appcache</strong>: Make or update an
+            appcache with one simple command. Never worry about adding
+            files or changing the appcache version again.
+          </li>
+        </ul>
+      </section>
+
+      <section class="modular">
+        <h3>It's modular, too!</h3>
+        
+        <em>(work in progress)</em>
+
+        <p>
+          Add your own commands easily, and install commands from the
+          community. Every volo project has a file
+          called <code>volofile</code> at the root which is just a list
+          of commands implemented in javascript. You can easily add your
+          own commands.
+        </p>
+
+        <p>
+          Volo commands are also available via <code>npm</code>. For
+          example, to install the ghdeploy command, simply run
+          <code>npm install volo-ghdeploy</code>.
+        </p>
+      </section>
+
+    </div>
+     
+    <script type="text/javascript"
+            data-main="js/app.js"
+            src="js/app.js"></script>
+  </body>
+</html>

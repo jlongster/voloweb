@@ -1,0 +1,15 @@
+{
+  "name": "voloweb",
+  "version": "0.0.1",
+  "dependencies": {
+    "less-middleware": "0.1.4"
+  },
+  "amd": {
+    "baseUrl": "www/js/lib"
+  },
+  "volo": {
+    "dependencies": {
+      "jquery": "github:jquery/jquery/1.7.2"
+    }
+  }
+}
