@@ -164,95 +164,14 @@ module.exports = {
     build: {
         flags: {
             //Does not print the build output.
-            'q': 'quiet',
-            //Uses dynamic loading via require.js instead of building
-            //all the modules in with almond.
-            'dynamic': 'dynamic'
+            'q': 'quiet'
         },
 
         run: function (d, v, namedArgs) {
             v.command('less')
                 .then(function () {
-                    //Remove the old dir
-                    v.rm(buildDir);
-
-                    if (!namedArgs.dynamic) {
-                        //Copy the directory for output.
-                        v.copyDir('www', buildDir);
-
-                        //Remove the js dir from the built area, will be
-                        //replaced by an optimized app.js
-                        v.rm(buildDir + '/js');
-
-                        //Do the CSS optimization
-                        return v.spawn('node', ['tools/r.js', '-o',
-                                                'cssIn=www/css/app.css',
-                                                'out=' + buildDir + '/css/app.css'], {
-                                                    useConsole: !namedArgs.quiet
-                                                });
-                    }
-                    return undefined;
-                })
-                .then(function () {
-                    //JS go time
-                    var optimize = namedArgs.optimize || 'uglify';
-
-                    if (namedArgs.dynamic) {
-                        //Still use require.js to load the app.js file.
-                        return v.spawn('node', ['tools/r.js', '-o',
-                                                'appDir=www',
-                                                'baseUrl=js/lib',
-                                                'paths.app=../app',
-                                                'name=app',
-                                                'dir=' + buildDir,
-                                                'optimize=' + optimize], {
-                                                    useConsole: !namedArgs.quiet
-                                                });
-                    } else {
-                        //The all-in-one option.
-                        return v.spawn('node', ['tools/r.js', '-o',
-                                                'baseUrl=www/js/lib',
-                                                'paths.app=../app',
-                                                'paths.almond=../../../tools/almond',
-                                                'name=almond',
-                                                'include=app',
-                                                'out=' + buildDir + '/js/app.js',
-                                                'optimize=' + optimize], {
-                                                    useConsole: !namedArgs.quiet
-                                                });
-                    }
-                })
-                .then(function (buildOutput) {
-                    //Remove all the CSS except for the app.css, since it
-                    //inlines all the other ones.
-                    v.getFilteredFileList(buildDir + '/css').forEach(function (path) {
-                        if (!/app\.css$/.test(path)) {
-                            v.rm(path);
-                        }
-                    });
-
-                    var modernizr = '/js/lib/modernizr-2.5.3.min.js';
-                    if(v.exists('www' + modernizr)) {
-                        //Copy the modernizr js file since we still need it around
-                        v.mkdir(buildDir + '/js/lib');
-                        v.copyFile('www' + modernizr, buildDir + modernizr);
-                    }
-
-                    //If almond is in use, it is built into app.js, so need
-                    //to update the script tag to just load app.js instead.
-                    if (!namedArgs.dynamic) {
-                        var indexName = buildDir + '/index.html',
-                        contents = v.read(indexName),
-                        scriptRegExp = /(<script[^>]+data-main="[^"]+"[^>]+)(src="[^"]+")([^>]*>\s*<\/script>)/;
-
-                        contents = contents.replace(scriptRegExp,
-                                                    function (match, pre, script, post) {
-                                                        return pre + 'src="js/app.js"' + post;
-                                                    });
-
-                        v.write(indexName, contents);
-                    }
-                    return buildOutput;
+                    return v.shell('node tools/r.js -o tools/build.js',
+                                   { useConsole: !namedArgs.quiet });
                 })
                 .then(function (buildOutput) {
                     d.resolve(buildOutput);

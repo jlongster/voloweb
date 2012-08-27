@@ -22,7 +22,6 @@ div.logo {
 code {
   background-color: #dddddd;
   padding: .25em .5em;
-  font-style: italic;
 }
 button.get-started {
   text-align: center;
@@ -63,16 +62,50 @@ section.headline {
   font-size: 1.2em;
   text-align: center;
 }
+section.install {
+  background-color: #dddddd;
+  width: 50%;
+  text-align: center;
+  margin: 1em auto;
+  padding: 1em;
+}
+section.install pre {
+  color: blue;
+}
+section.install h4,
+section.install pre,
+section.install code {
+  margin: 0;
+}
+section.install h4 {
+  margin-bottom: .5em;
+}
 section.features {
   margin: 1em 0;
   text-align: center;
+}
+section.features .explain,
+section.features .example {
+  width: 49%;
+}
+section.features .explain {
+  float: left;
+}
+section.features .example {
+  float: right;
+}
+section.features pre {
+  margin: 0;
+  margin-bottom: 1em;
 }
 section.features ul {
   text-align: left;
   margin: 2em 0;
 }
 section.features li {
-  margin: 1em 0;
+  margin: 2em 0;
+  clear: both;
+  overflow: hidden;
 }
 section.modular h3 {
   text-align: center;

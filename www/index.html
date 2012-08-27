@@ -28,50 +28,95 @@
         formats, and <strong>deploy</strong> them. All with a few keystrokes.
       </section>
 
-      <button class="get-started">Get started now!</button>
+      <section class="install">
+        <h4>Get started now:</h4>
+
+        <pre><code>$ npm install -g volo</code></pre>
+      </section>
 
       <section class="features">
-        Just type <code>volo &lt;command&gt;</code> and you'll be able to:
-
         <ul>
           <li>
-            <strong>Quickly add javascript libraries</strong>: Just tell
-            volo the library name or a raw URL, and volo will find it,
-            add it and all dependencies, and convert it into an AMD
-            module if needed.
+            <div class="explain">
+              <strong>Create projects from templates</strong>: Use an
+              existing project from github or a zipball (local or
+              remote) as a template for your new project
+            </div>
+            <div class="example">
+              <pre><code>$ volo create project-name</code></pre>
+              <pre><code>$ volo create username/project-name</code></pre>
+              <pre><code>$ volo create http://foo.com/bar.zip</code></pre>
+            </div>
+          </li>
+          <li>
+            <div class="explain">
+              <strong>Quickly add javascript libraries</strong>: Just tell
+              volo the library name or a raw URL, and volo will find it,
+              add it and all dependencies, and convert it into an AMD
+              module if needed.
+            </div>
+            <div class="example">
+              <pre><code>$ volo add underscore</code></pre>
+            </div>
           </li>
 
           <li>
-            <strong>Automatically compile Less and
-              Coffeescript</strong>: Volo will watch your files for
-            changes and automatically compile them. This is builtin to
-            volo's development server. (TODO)
+            <div class="explain">
+              <strong>Automatically compile Less and
+                Coffeescript</strong>: Volo will watch your files for
+              changes and automatically compile them. This is builtin to
+              volo's development server. (TODO)
+            </div>
+            <div class="example">
+              <pre><code>$ volo less # compile once immediately</code></pre>
+              <pre><code>$ volo serve # start server & compile on demand</code></pre>
+            </div>
           </li>
 
           <li>
-            <strong>Fire up a development server</strong>: View your
-            site over HTTP if you don't already have a server-side
-            component set up. This also compiles your Less and
-            Coffeescript for you.
+            <div class="explain">
+              <strong>Fire up a development server</strong>: View your
+              site over HTTP if you don't already have a server-side
+              component set up. This also compiles your Less and
+              Coffeescript for you.
+            </div>
+            <div class="example">
+              <pre><code>$ volo serve</code></pre>
+            </div>
           </li>
 
           <li>
-            <strong>Build your site optimally</strong>: Concatenate and
-            minify all your CSS and js with one build command. Volo uses
-            r.js to flatten all your AMD modules and CSS files and
-            minimize them.
+            <div class="explain">
+              <strong>Build your site optimally</strong>: Concatenate and
+              minify all your CSS and js with one build command. Volo uses
+              r.js to flatten all your AMD modules and CSS files and
+              minimize them.
+            </div>
+            <div class="example">
+              <pre><code>$ volo build</code></pre>
+            </div>
           </li>
 
           <li>
-            <strong>Deploy straight to github</strong>: If your site
-            is all client-side, you can publish to github with one
-            command. Your site is live within seconds.
+            <div class="explain">
+              <strong>Deploy straight to github</strong>: If your site
+              is all client-side, you can publish to github with one
+              command. Your site is live within seconds.
+            </div>
+            <div class="example">
+              <pre><code>$ volo ghdeploy</code></pre>
+            </div>
           </li>
 
           <li>
-            <strong>Manage the appcache</strong>: Make or update an
-            appcache with one simple command. Never worry about adding
-            files or changing the appcache version again.
+            <div class="explain">
+              <strong>Manage the appcache</strong>: Make or update an
+              appcache with one simple command. Never worry about adding
+              files or changing the appcache version again.
+            </div>
+            <div class="example">
+              <pre><code>$ volo appcache</code></pre>
+            </div>
           </li>
         </ul>
       </section>

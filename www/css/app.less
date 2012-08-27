@@ -28,7 +28,6 @@ div.logo {
 code {
     background-color: #dddddd;
     padding: .25em .5em;
-    font-style: italic;
 }
 
 button.get-started {
@@ -58,9 +57,46 @@ section.headline {
     text-align: center;
 }
 
+section.install {
+    background-color: #dddddd;
+    width: 50%;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1em;
+
+    pre {
+        color: blue;
+    }
+
+    h4, pre, code {
+        margin: 0;
+    }
+
+    h4 {
+        margin-bottom: .5em;
+    }
+}
+
 section.features {
     margin: 1em 0;
     text-align: center;
+
+    .explain, .example {
+        width: 49%;
+    }
+
+    .explain {
+        float: left;
+    }
+
+    .example {
+        float: right;
+    }
+
+    pre {
+        margin: 0;
+        margin-bottom: 1em;
+    }
 
     ul {
         text-align: left;
@@ -68,7 +104,9 @@ section.features {
     }
 
     li {
-        margin: 1em 0;
+        margin: 2em 0;
+        clear: both;
+        overflow: hidden;
     }
 }
 
